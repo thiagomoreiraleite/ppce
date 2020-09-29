@@ -10,10 +10,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_29_183541) do
+ActiveRecord::Schema.define(version: 2020_09_29_203409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "mandatos", force: :cascade do |t|
+    t.date "inicio"
+    t.date "fim"
+    t.boolean "vigente"
+    t.string "cargo"
+    t.bigint "membro_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["membro_id"], name: "index_mandatos_on_membro_id"
+  end
+
+  create_table "membros", force: :cascade do |t|
+    t.string "nome"
+    t.string "cidade"
+    t.string "email"
+    t.string "whatsapp"
+    t.string "foneresidencial"
+    t.string "CPF"
+    t.string "RG"
+    t.string "orgaoexpeditor"
+    t.date "nascimento"
+    t.string "CEP"
+    t.string "endereco"
+    t.string "endereconumero"
+    t.string "bairro"
+    t.string "UF"
+    t.string "sexo"
+    t.string "naturalidade"
+    t.string "nomedamae"
+    t.string "estadocivil"
+    t.string "profissao"
+    t.string "fonecomercial"
+    t.string "celular"
+    t.string "tituloeleitor"
+    t.string "zona"
+    t.string "secao"
+    t.date "datafiliacao"
+    t.string "cargoadm"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +69,5 @@ ActiveRecord::Schema.define(version: 2020_09_29_183541) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "mandatos", "membros"
 end
