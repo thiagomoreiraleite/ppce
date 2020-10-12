@@ -1,6 +1,6 @@
 class MembrosController < ApplicationController
-  before_action :set_membro, only: [ :edit, :show, :update, :destroy ]
-  before_action :authenticate_user!, except: :new
+  before_action :set_membro, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
   
   def index
     @membros = Membro.all
@@ -15,6 +15,7 @@ class MembrosController < ApplicationController
   end
 
   def show
+    @membro = Membro.find(params[:id])
     @mandato = @membro.mandato
   end
 
@@ -32,10 +33,12 @@ class MembrosController < ApplicationController
 
   end
 
-  def edit   
+  def edit
+    @membro = Membro.find(params[:id])
   end
 
   def update
+    @membro = Membro.find(params[:id])
     if @membro.update(membro_params)
       redirect_to membro_path(@membro), alert: 'Membro modificado com sucesso!' 
     else
@@ -44,6 +47,7 @@ class MembrosController < ApplicationController
   end
 
   def destroy
+    @membro = Membro.find(params[:id])
     @membro.destroy
     redirect_to root_path, notice: 'Membro removido com sucesso!'   
   end

@@ -5,3 +5,24 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts 'Cleaning database...'
+
+User.destroy_all
+Membro.destroy_all
+Mandato.destroy_all
+
+puts 'Creating Membros...'
+
+m1 = Membro.new(nome: "Jose", cidade: "Sobral", email: 'jose@ppce.com')
+m1.save!
+
+m2 = Membro.new(nome: "Raimundo", cidade: "Palhano", email: 'raimundo@ppce.com')
+m2.save!
+
+m3 = Membro.new(nome: "Maria", cidade: "Granjeiro", email: 'maria@ppce.com')
+m3.save!
+
+u1 = User.new(email: 'zegalinha@ppce.com', password: '123123')
+u1.save
+
+puts 'All Membros created!!'
