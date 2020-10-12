@@ -3,13 +3,14 @@ class MembrosController < ApplicationController
   before_action :authenticate_user!, except: :new
   
   def index
-    search = params[:search]
+    @membros = Membro.all
 
-    if search.present?
-      sql = "title ILIKE :query OR description ILIKE :query"
-      search_membros = Membro.where(sql, query: "%#{search}%")
-    else
-      all_membros = Membro.all
+    # the `geocoded` scope filters only membros with coordinates (latitude & longitude)
+    @markers = @membros.geocoded.map do |membro|
+      {
+        lat: membro.latitude,
+        lng: membro.longitude
+      }
     end
   end
 
