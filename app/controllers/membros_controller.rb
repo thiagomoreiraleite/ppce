@@ -1,5 +1,6 @@
 class MembrosController < ApplicationController
   before_action :set_membro, only: [ :edit, :show, :update, :destroy ]
+  before_action :authenticate_user!, except: :new
   
   def index
     search = params[:search]
