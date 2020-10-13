@@ -4,19 +4,10 @@ class MembrosController < ApplicationController
   
   def index
     @membros = Membro.all
-
-    # the `geocoded` scope filters only membros with coordinates (latitude & longitude)
-    @markers = @membros.geocoded.map do |membro|
-      {
-        lat: membro.latitude,
-        lng: membro.longitude
-      }
-    end
   end
 
   def show
     @membro = Membro.find(params[:id])
-    @mandato = @membro.mandato
   end
 
   def new
