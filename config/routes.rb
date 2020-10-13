@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'membros#index'
-  
+  root to: 'mandatos#index'
+  resources :mandatos
   resources :membros 
 end
