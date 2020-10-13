@@ -26,7 +26,6 @@ class CreateMembros < ActiveRecord::Migration[6.0]
       t.string :zona
       t.string :secao
       t.date :datafiliacao
-      t.string :cargoadm
 
       t.timestamps
     end

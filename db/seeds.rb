@@ -8,8 +8,9 @@
 puts 'Cleaning database...'
 
 User.destroy_all
-Membro.destroy_all
 Mandato.destroy_all
+Membro.destroy_all
+
 
 puts 'Creating Membros...'
 
@@ -23,6 +24,13 @@ m3 = Membro.new(nome: "Maria", cidade: "Granjeiro", email: 'maria@ppce.com')
 m3.save!
 
 u1 = User.new(email: 'zegalinha@ppce.com', password: '123123')
+
+mandato1 = Mandato.new(nome: "Antonio", cidade: "Crato", email: 'antonio@ppce.com', cargoadm: "PRESIDENTE", cargo: "PREFEITO")
+mandato1.save!
+
+mandato2 = Mandato.new(nome: "Ana", cidade: "Crato", email: 'ana@ppce.com', cargoadm: "VICE-PRESIDENTE", cargo: "VICE-PREFEITO")
+mandato2.save!
+
 u1.save
 
 puts 'All Membros created!!'

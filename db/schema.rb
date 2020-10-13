@@ -16,14 +16,18 @@ ActiveRecord::Schema.define(version: 2020_10_12_133245) do
   enable_extension "plpgsql"
 
   create_table "mandatos", force: :cascade do |t|
+    t.string "nome"
+    t.string "cargoadm"
+    t.string "cidade"
+    t.string "email"
+    t.string "whatsapp"
+    t.string "celular"
     t.date "inicio"
     t.date "fim"
     t.boolean "vigente"
     t.string "cargo"
-    t.bigint "membro_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["membro_id"], name: "index_mandatos_on_membro_id"
   end
 
   create_table "membros", force: :cascade do |t|
@@ -52,7 +56,6 @@ ActiveRecord::Schema.define(version: 2020_10_12_133245) do
     t.string "zona"
     t.string "secao"
     t.date "datafiliacao"
-    t.string "cargoadm"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.float "latitude"
@@ -71,5 +74,4 @@ ActiveRecord::Schema.define(version: 2020_10_12_133245) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "mandatos", "membros"
 end
