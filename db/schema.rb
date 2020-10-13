@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 2020_10_12_133245) do
     t.string "cargo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "membros", force: :cascade do |t|
@@ -58,8 +60,6 @@ ActiveRecord::Schema.define(version: 2020_10_12_133245) do
     t.date "datafiliacao"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.float "latitude"
-    t.float "longitude"
   end
 
   create_table "users", force: :cascade do |t|
