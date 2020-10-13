@@ -8,7 +8,8 @@ class MandatosController < ApplicationController
     @markers = @cidades.geocoded.map do |cidade|
       {
         lat: cidade.latitude,
-        lng: cidade.longitude
+        lng: cidade.longitude,
+        cidade: cidade.cidade
       }
     end
   end
