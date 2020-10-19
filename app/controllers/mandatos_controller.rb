@@ -3,6 +3,7 @@ class MandatosController < ApplicationController
   before_action :authenticate_user!
   
   def index
+    @membro = Membro.new
     @cidades = Mandato.where.not(cidade: nil).distinct
     # the `geocoded` scope filters only mandatos with coordinates (latitude & longitude)
     @markers = @cidades.geocoded.map do |cidade|
