@@ -1,7 +1,7 @@
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 10px;
+  grid-gap: 2px;
 }
 
 #card-mulheres {
@@ -69,18 +69,21 @@
 }
 
 #card-mulheres:hover {
-  box-shadow: 0 0 10px 10px #999999;
+  box-shadow: 0 0 17px rgba(0,0,0,0.5);
   font-size: 31px;
   background-image: linear-gradient(rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 90%), asset-url('mulheres.jpg');
+  cursor: pointer;
 }
 #card-juventude:hover {
-  box-shadow: 0 0 10px 10px #999999;
+  box-shadow: 0 0 17px rgba(0,0,0,0.5);
   font-size: 31px;
   background-image: linear-gradient(rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 90%), asset-url('juventude.png');
+  cursor: pointer;
 }
 #card-filie-se:hover {
-  box-shadow: 0 0 10px 10px #999999;
+  box-shadow: 0 0 17px rgba(0,0,0,0.5);
   background-image: linear-gradient(rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 90%), asset-url('filie-se.png');
+  cursor: pointer;
 }
 
 .card-mensagem {
@@ -96,28 +99,42 @@
 .card-mensagem:hover {
   box-shadow: 0 0 17px rgba(0,0,0,0.3);;
   opacity: 1;
+  // cursor: pointer;
 }
 
 .card-mensagem .img {
   height: 100%;
   width: 120px;
-  object-fit: cover;
+  // object-fit: cover;
 }
 
 .card-mensagem h2 {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-mensagem p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
+.card-mensagem h3 {
+  font-size: 15px;
+  opacity: .8;
   margin-bottom: 0;
-  margin-top: 8px;
+  margin-top: 4px;
+}
+
+.card-mensagem p {
+  font-size: 13px;
+  line-height: 1.4;
+  opacity: .65;
+  margin-bottom: 0;
+  margin-top: 10px;
+  strong {
+    text-decoration: underline;
+    cursor: pointer;
+    color: $blue;
+  }
 }
 
 .card-mensagem .card-mensagem-infos {
   padding: 16px;
+  margin-left: 16px;
 }
