@@ -1,5 +1,6 @@
 <div id="map"
   style="width: 100%; height: 600px;"
+  class='map pad2'
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
@@ -8,5 +9,19 @@
   <div class='heading'>
     <h1>Our locations</h1>
   </div>
-  <div id='listings' class='listings'></div>
+  <div id='listings' class='listings'>
+  <div id="cidade"></div>
+    <%# <div class="row message unread">
+      <div class="col-3">DHH</div>
+      <div class="col-9">A new job awaits you!</div>
+    </div>
+    <div class="row message read">
+      <div class="col-3">JavaScript Weekly</div>
+      <div class="col-9">How to become a JS pro in 3 days</div>
+    </div>
+    <div class="row message read">
+      <div class="col-3">Boris Paillard</div>
+      <div class="col-9">Welcome to Le Wagon :)</div>
+    </div> %>
+  </div>
 </div>
