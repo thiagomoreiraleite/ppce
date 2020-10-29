@@ -11,22 +11,16 @@ const buildMap = () => {
   });
 };
 
-// const mapMarkers = []
-
 const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
     const newMarker = new mapboxgl.Marker()
       .setLngLat([ marker.lng, marker.lat ])
       .addTo(map);
-    // mapMarker.push(newMarker)
-    // We use the "getElement" funtion provided by mapbox-gl to access to the marker's HTML an set an id
-    newMarker.getElement().dataset.markerId = marker.cidade;
-    newMarker.getElement().dataset.markerCargo = marker.cargo;
-    // Put a microphone on the new marker listening for a mouseenter event
+    newMarker.getElement().dataset.markerCidade = marker.cidade;
+    cidades.push(markerCidade);
+    newMarker.getElement().dataset.markerNome = marker.nome;
     newMarker.getElement().addEventListener('click', (e) => updateSidebar(e) );
     newMarker.getElement().addEventListener('mouseenter', (e) => changeCursorStyle(e) );
-    // We put a microphone on listening for a mouseleave event
-    // newMarker.getElement().addEventListener('mouseleave', (e) => updateSidebar(e) );
   });
 };
 
@@ -54,7 +48,7 @@ const changeCursorStyle = (event) => {
 const updateSidebar = (event) => {
   const cidadeInput = document.getElementById("cidade");
 
-  cidadeInput.innerText = `${event.currentTarget.dataset.markerId}`;
+  cidadeInput.innerText = `Cidade: ${event.currentTarget.dataset.markerCidade}, Nome: ${event.currentTarget.dataset.markerNome}`;
   // event.currentTarget.dataset.markerId.forEach((marker) => {
 
   // });

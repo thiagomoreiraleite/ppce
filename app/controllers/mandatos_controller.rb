@@ -4,15 +4,16 @@ class MandatosController < ApplicationController
   
   def index
     @membro = Membro.new
-    @cidades = Mandato.where.not(cidade: nil).distinct
-    # the `geocoded` scope filters only mandatos with coordinates (latitude & longitude)
-    @markers = @cidades.geocoded.map do |cidade|
-      {
-        lat: cidade.latitude,
-        lng: cidade.longitude,
-        cidade: cidade.cidade
+    @mandatos = Mandato.all
+    # @mandatos = Mandato.where.not(cidade: nil).distinct
+
+    @dados = @mandatos.geocoded.map do |mandato|
+      { nome: mandato.nome,
+        cargo: mandato.cargo,
+        cargoadm: mandato.cargoadm
       }
     end
+    @markers = build_cidades
   end
 
   def show
@@ -59,6 +60,21 @@ class MandatosController < ApplicationController
   end
 
   def mandato_params
-    params.require(:mandato).permit(:nome, :cidade, :email, :whatsapp, :cargo, :cargoadm)
+    params.require(:mandato).permit(:nome, :cidade, :email, :whatsapp, :cargo, :cargoadm, :latitude, :longitude)
+  end
+
+  def build_cidades
+    @cidades = Mandato.where.not(cidade: nil).distinct
+    # @mandatos = Mandato.where.not(cidade: nil).distinct
+    @cidades.geocoded.map do |cidade|
+      {
+        lat: cidade.latitude,
+        lng: cidade.longitude,
+        cidade: cidade.cidade,
+        dados: @dados
+      }
+    end
+    
+    
   end
 end
