@@ -31,6 +31,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 // Internal imports, e.g:
 import { showModal } from './modal';
+import { showModalLista } from './modal_lista';
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
@@ -38,4 +39,5 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initMapbox();
   showModal();
+  showModalLista();
 });

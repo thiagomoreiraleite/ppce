@@ -3,6 +3,15 @@ class MandatosController < ApplicationController
   before_action :authenticate_user!
   
   def index
+    search = params[:search]
+    if search.present?
+      sql = "nome ILIKE :query OR cargo ILIKE :query OR cidade ILIKE :query"
+      search_mandatos = Mandato.where(sql, query: "%#{search}%")
+      @lista_mandatos = search_mandatos
+    else
+      @lista_mandatos = Mandato.all
+    end
+
     @membro = Membro.new
     @mandatos = Mandato.all
     @cidades = Mandato.where.not(cidade: nil).distinct
@@ -14,8 +23,7 @@ class MandatosController < ApplicationController
         dados: @mandatos.geocoded.map do |mandato|
             { nome: mandato.nome.upcase,
               cidade: mandato.cidade.upcase,
-              cargo: mandato.cargo.capitalize,
-              cargoadm: mandato.cargoadm.capitalize
+              cargo: mandato.cargo.capitalize
             }
         end
       }

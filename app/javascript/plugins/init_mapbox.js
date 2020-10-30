@@ -26,6 +26,7 @@ const addMarkersToMap = (map, markers) => {
       return lista;
     }, "");
     newMarker.getElement().addEventListener('click', (e) => updateSidebar(e) );
+    // newMarker.getElement().addEventListener('click', (e) => showListaCompleta(e) );
     newMarker.getElement().addEventListener('mouseenter', (e) => changeCursorStyle(e) );
   });
 };
@@ -66,9 +67,9 @@ const initMapbox = () => {
           'circle-color':[
             'step',
             ['get', 'point_count'],
-            'rgba(14,29,49,1)',
-            100,
-            'rgba(45,75,114,1)',
+            'rgba(45,75,114,0.85)',
+            10,
+            'rgba(45,75,114,0.95)',
             750,
             'rgba(14,29,49,1)'
             ],
@@ -137,7 +138,12 @@ const updateSidebar = (event) => {
   const cidadeInput = document.getElementById("cidade");
   const cidade = event.currentTarget.dataset.markerCidade;
   const dados = event.currentTarget.dataset.markerDados;
-  cidadeInput.innerHTML = `<h1>${cidade}</h1><ul>${dados}</ul>`;
+  cidadeInput.innerHTML = `<h3>${cidade}</h3><ul>${dados}</ul>`;
 }
+
+// const showListaCompleta = (event) => {
+//   const listaCompletaId = document.getElementById("lista-completa");
+//   listaCompletaId.style.display = "block";
+// }
 
 export { initMapbox };
