@@ -84,6 +84,23 @@
   visibility: hidden;
 }
 
-// #lista-completa {
-//   display: none;
+// .marker {
+//   display: block;
+//   border: none;
+//   border-radius: 50%;
+//   cursor: pointer;
+//   padding: 0;
+// }
+
+.marker {
+  background-image: url('blue-marker.png');
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+// #map {
+//   z-index: 50;
 // }

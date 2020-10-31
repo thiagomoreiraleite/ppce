@@ -15,9 +15,17 @@ const buildMap = () => {
 
 const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
+    const el = document.createElement('div');
+    el.className = 'marker';
+    // el.style.backgroundImage = 'url("blue-marker.png")';
+    // el.style.backgroundSize = 'contain';
+    // el.style.backgroundRepeat = 'no-repeat';
+    // el.style.width = marker.iconSize[0] + 'px';
+    // el.style.height = marker.iconSize[1] + 'px';
     const newMarker = new mapboxgl.Marker()
       .setLngLat([ marker.lng, marker.lat ])
       .addTo(map);
+    newMarker.options.scale = 3;
     newMarker.getElement().dataset.markerCidade = marker.cidade;
     newMarker.getElement().dataset.markerDados = marker.dados.reduce((lista, elementoAtual) => {
       if (elementoAtual["cidade"] == marker.cidade) {
@@ -92,6 +100,7 @@ const initMapbox = () => {
         filter: ['has', 'point_count'],
         layout: {
           'text-field': '{point_count_abbreviated}',
+          'text-offset': [0.5, 0.5],
           'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
           'text-size': 18
         },
@@ -138,7 +147,7 @@ const updateSidebar = (event) => {
   const cidadeInput = document.getElementById("cidade");
   const cidade = event.currentTarget.dataset.markerCidade;
   const dados = event.currentTarget.dataset.markerDados;
-  cidadeInput.innerHTML = `<h3>${cidade}</h3><ul>${dados}</ul>`;
+  cidadeInput.innerHTML = `<h3>${cidade.replace(/, Ceará/i, '')}</h3><ul>${dados}</ul>`;
 }
 
 // const showListaCompleta = (event) => {

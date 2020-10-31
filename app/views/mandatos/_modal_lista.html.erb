@@ -2,12 +2,6 @@
 
   <!-- Modal content -->
   <div class="modal-content">
-    <span class="close">&times;</span>
-      <%= form_tag mandatos_path, method: :get, class: 'form-inline' do %>
-        <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Encontre um Progressista' %>
-        <%= submit_tag 'Search', class: 'btn btn-primary'%>
-      <% end %>
-      
       <h2>Lista Completa</h2>
         <% lista_cidades = [] %>
         <% @cidades.each do |cidade|%>
