@@ -17,15 +17,9 @@ const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
     const el = document.createElement('div');
     el.className = 'marker';
-    // el.style.backgroundImage = 'url("blue-marker.png")';
-    // el.style.backgroundSize = 'contain';
-    // el.style.backgroundRepeat = 'no-repeat';
-    // el.style.width = marker.iconSize[0] + 'px';
-    // el.style.height = marker.iconSize[1] + 'px';
-    const newMarker = new mapboxgl.Marker()
+    const newMarker = new mapboxgl.Marker(el)
       .setLngLat([ marker.lng, marker.lat ])
       .addTo(map);
-    newMarker.options.scale = 3;
     newMarker.getElement().dataset.markerCidade = marker.cidade;
     newMarker.getElement().dataset.markerDados = marker.dados.reduce((lista, elementoAtual) => {
       if (elementoAtual["cidade"] == marker.cidade) {
@@ -34,16 +28,9 @@ const addMarkersToMap = (map, markers) => {
       return lista;
     }, "");
     newMarker.getElement().addEventListener('click', (e) => updateSidebar(e) );
-    // newMarker.getElement().addEventListener('click', (e) => showListaCompleta(e) );
     newMarker.getElement().addEventListener('mouseenter', (e) => changeCursorStyle(e) );
   });
 };
-
-// const fitMapToMarkers = (map, markers) => {
-//   const bounds = new mapboxgl.LngLatBounds();
-//   markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-//   map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
-// };
 
 const initMapbox = () => {
   if (mapElement) {
@@ -75,20 +62,20 @@ const initMapbox = () => {
           'circle-color':[
             'step',
             ['get', 'point_count'],
-            'rgba(45,75,114,0.85)',
+            'rgba(45,75,114,0.75)',
             10,
-            'rgba(45,75,114,0.95)',
-            750,
-            'rgba(14,29,49,1)'
+            'rgba(45,75,114,0.88)',
+            20,
+            'rgba(45,75,114,1)'
             ],
           'circle-radius': [
             'step',
             ['get', 'point_count'],
-            25,
-            100,
-            30,
-            1000,
-            40
+            28,
+            10,
+            33,
+            20,
+            37
           ]
         }
       });
@@ -100,7 +87,7 @@ const initMapbox = () => {
         filter: ['has', 'point_count'],
         layout: {
           'text-field': '{point_count_abbreviated}',
-          'text-offset': [0.5, 0.5],
+          'text-offset': [0.6, 0.6],
           'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
           'text-size': 18
         },
@@ -133,7 +120,6 @@ const initMapbox = () => {
     });
     const markers = JSON.parse(mapElement.dataset.markers);
     addMarkersToMap(map, markers);
-    // fitMapToMarkers(map, markers);
     map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl }));
   }
@@ -149,10 +135,5 @@ const updateSidebar = (event) => {
   const dados = event.currentTarget.dataset.markerDados;
   cidadeInput.innerHTML = `<h3>${cidade.replace(/, Ceará/i, '')}</h3><ul>${dados}</ul>`;
 }
-
-// const showListaCompleta = (event) => {
-//   const listaCompletaId = document.getElementById("lista-completa");
-//   listaCompletaId.style.display = "block";
-// }
 
 export { initMapbox };

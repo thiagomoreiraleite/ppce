@@ -1,20 +1,25 @@
-<div id="map"
-  style="height: 600px;"
-  class='map pad2'
-  data-markers="<%= @markers.to_json %>"
-  data-clusters="<%= @geojson.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
+<div class="container">
+  <div class="row">
+    <div class="col-8 col-sm-12"
+      id="map"
+      style="height: 600px;"
+      class='map pad2'
+      data-markers="<%= @markers.to_json %>"
+      data-clusters="<%= @geojson.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
 
-<div class='sidebar'>
-  <div class='heading'>
-    <h1>Progressistas no Ceará</h1>
-  </div>
-  <div>
-    <button id="lista-completa" class="button button-lista">Veja a lista completa</button>
-    <%= render 'modal_lista'%>
-  </div>
-  <div id='listings' class='listings'>
-    <div id="cidade"></div> 
+    <div class='sidebar' class="col-4 col-sm-12">
+      <div class='heading'>
+        <h1>Progressistas no Ceará</h1>
+      </div>
+      <div>
+        <button id="lista-completa" class="button button-lista">Veja a lista completa</button>
+        <%= render 'modal_lista'%>
+      </div>
+      <div id='listings' class='listings'>
+        <div id="cidade"></div> 
+      </div>
+    </div>
   </div>
 </div>
