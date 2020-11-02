@@ -5,16 +5,19 @@
 }
 
 #card-mulheres {
-  background-image: linear-gradient(rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.2) 90%), asset-url('mulheres.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 90%), asset-url('mulheres.jpg');
+  opacity: 0.9;
 }
 
 #card-juventude {
   background-image: linear-gradient(rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.2) 90%), asset-url('juventude.png');
   color: white;
+  opacity: 0.9;
 }
 
 #card-filie-se {
   background-image: linear-gradient(rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.2) 90%), asset-url('filie-se.png');
+  opacity: 0.9;
 }
 
 // Smallest device
@@ -72,39 +75,44 @@
   box-shadow: 0 0 17px rgba(0,0,0,0.5);
   font-size: 31px;
   cursor: pointer;
-  opacity: 0.9;
+  opacity: 1;
 }
 #card-juventude:hover {
   box-shadow: 0 0 17px rgba(0,0,0,0.5);
   font-size: 31px;
   cursor: pointer;
-  opacity: 0.9;
+  opacity: 1;
 }
 #card-filie-se:hover {
   box-shadow: 0 0 17px rgba(0,0,0,0.5);
   cursor: pointer;
-  opacity: 0.9;
+  opacity: 1;
 }
 
 .card-mensagem {
   overflow: auto;
-  height: 120px;
+  height: 180px;
   background: $light-gray;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
   display: flex;
   align-items: flex-start;
-  opacity: 0.85;
+  opacity: 0.8;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 4px;
 }
 
 .card-mensagem:hover {
   box-shadow: 0 0 17px rgba(0,0,0,0.3);;
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 .card-mensagem .img {
-  height: 100%;
+  margin: 7px 0px 12px 7px;
+  height: 150px;
   width: 120px;
   object-fit: cover;
+  border-radius: 6px;
 }
 
 .card-mensagem h2 {
@@ -134,6 +142,6 @@
 }
 
 .card-mensagem .card-mensagem-infos {
-  padding: 16px 16px 1px 16px;
-  margin-left: 16px;
+  padding: 16px 16px 1px 5px;
+  margin-left: 10px;
 }
