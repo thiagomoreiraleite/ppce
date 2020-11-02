@@ -32,6 +32,12 @@ const addMarkersToMap = (map, markers) => {
   });
 };
 
+// const fitMapToMarkers = (map, markers) => {
+//   const bounds = new mapboxgl.LngLatBounds();
+//   markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
+//   map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
+// };
+
 const initMapbox = () => {
   if (mapElement) {
     const map = buildMap();
@@ -49,7 +55,7 @@ const initMapbox = () => {
       setTimeout(function() {
         map.easeTo({
           center: [-39.300540, -5.192078],
-          zoom: 6.4,
+          zoom: 6,
           });
       }, delayInMilliseconds);
 
@@ -120,6 +126,7 @@ const initMapbox = () => {
     });
     const markers = JSON.parse(mapElement.dataset.markers);
     addMarkersToMap(map, markers);
+    // fitMapToMarkers(map, markers);
     map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl }));
   }
@@ -135,5 +142,6 @@ const updateSidebar = (event) => {
   const dados = event.currentTarget.dataset.markerDados;
   cidadeInput.innerHTML = `<h3>${cidade.replace(/, Ceará/i, '')}</h3><ul>${dados}</ul>`;
 }
+
 
 export { initMapbox };
