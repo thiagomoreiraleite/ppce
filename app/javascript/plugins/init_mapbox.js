@@ -23,7 +23,7 @@ const addMarkersToMap = (map, markers) => {
     newMarker.getElement().dataset.markerCidade = marker.cidade;
     newMarker.getElement().dataset.markerDados = marker.dados.reduce((lista, elementoAtual) => {
       if (elementoAtual["cidade"] == marker.cidade) {
-        lista += `<li>${elementoAtual["cargo"]} ${elementoAtual["nome"]}</li>`;
+        lista += `<li style="list-style-type: none;">${elementoAtual["cargo"]} ${elementoAtual["nome"]}</li>`;
       }
       return lista;
     }, "");
