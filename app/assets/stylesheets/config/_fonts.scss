@@ -2,13 +2,22 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 
 
-@font-face {
-  font-family: "NoyhRW01-SemiLight";
-  src: font-url("Noyh R W01 SemiLight.ttf") format('truetype');
-  font-weight: normal;
-}
+// @font-face {
+//   font-family: "Noyh R W01 SemiLight";
+//   src: font-url("2ece2ca570f9b741d03cd6305ce9f8d5.ttf") format('truetype');
+//   font-weight: normal;
+// }
 
-$my-font: "NoyhRW01-SemiLight";
+// @font-face {font-family: "Noyh R W01 SemiLight";
+//   src: url("2ece2ca570f9b741d03cd6305ce9f8d5.eot"); /* IE9*/
+//   src: url("2ece2ca570f9b741d03cd6305ce9f8d5.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+//   url("2ece2ca570f9b741d03cd6305ce9f8d5.woff2") format("woff2"), /* chrome、firefox */
+//   url("2ece2ca570f9b741d03cd6305ce9f8d5.woff") format("woff"), /* chrome、firefox */
+//   url("2ece2ca570f9b741d03cd6305ce9f8d5.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+//   url("2ece2ca570f9b741d03cd6305ce9f8d5.svg#Noyh R W01 SemiLight") format("svg"); /* iOS 4.1- */
+// }
+
+$my-font: "Noyh R W01 SemiLight";
 // Define fonts for body and headers
 $body-font: "Work Sans", "Helvetica", "sans-serif";
 $headers-font: "Nunito", "Helvetica", "sans-serif";
