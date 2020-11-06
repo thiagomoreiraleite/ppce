@@ -18,13 +18,13 @@
 }
 
 #card-filie-se3 {
-  background-image: linear-gradient(rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.2) 90%), asset-url('filie-se5.gif');
+  background-image: asset-url('filie-se5.gif');
   opacity: 1;
   transition: transform .2s;
 }
 
 #card-filie-se2 {
-  background-image: linear-gradient(rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.2) 90%), asset-url('filie-se4.gif');
+  background-image: asset-url('filie-se4.gif');
   opacity: 1;
   transition: transform .2s;
 }
