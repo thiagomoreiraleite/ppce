@@ -23,7 +23,8 @@ const addMarkersToMap = (map, markers) => {
     newMarker.getElement().dataset.markerCidade = marker.cidade;
     newMarker.getElement().dataset.markerDados = marker.dados.reduce((lista, elementoAtual) => {
       if (elementoAtual["cidade"] == marker.cidade) {
-        lista += `<li style="list-style-type: none;">${elementoAtual["cargo"]} ${elementoAtual["nome"]}</li>`;
+        // lista += `<li style="list-style-type: none;">${elementoAtual["cargo"]} ${elementoAtual["nome"]}</li>`;
+        lista += `<div>${elementoAtual["cargo"]} ${elementoAtual["nome"]}</div>`;
       }
       return lista;
     }, "");
@@ -140,7 +141,8 @@ const updateSidebar = (event) => {
   const cidadeInput = document.getElementById("cidade");
   const cidade = event.currentTarget.dataset.markerCidade;
   const dados = event.currentTarget.dataset.markerDados;
-  cidadeInput.innerHTML = `<h3>${cidade.replace(/, Ceará/i, '')}</h3><ul>${dados}</ul>`;
+  // cidadeInput.innerHTML = `<h3>${cidade.replace(/, Ceará/i, '')}</h3><ul>${dados}</ul>`;
+  cidadeInput.innerHTML = `<div class="item"><a class="title">${cidade.replace(/, Ceará/i, '')}</a></div>${dados}`;
 }
 
 
