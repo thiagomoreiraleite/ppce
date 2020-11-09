@@ -1,0 +1,19 @@
+<div id="myModalLista" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+      <h2>Lista Completa</h2>
+        <% lista_cidades = [] %>
+        <% @cidades.each do |cidade|%>
+          <% lista_cidades << cidade.cidade%>
+        <% end %>
+        <% lista_cidades.sort.each do |cidade|%>
+          <h5><%=cidade.delete_suffix(', Ceará')%></h5>
+            <% @mandatos.each do |mandato|%>
+              <% if mandato.cidade == cidade%>
+                <p><%= mandato.cargo %>  <%= mandato.nome %></p>
+              <% end %>
+            <% end %>
+        <% end %>
+  </div>
+</div>

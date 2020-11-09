@@ -24,18 +24,24 @@ require("channels")
 
 // External imports
 import "bootstrap";
-import { initMapbox } from '../plugins/init_mapbox';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 
 
 // Internal imports, e.g:
+import { initMapbox } from '../plugins/init_mapbox';
 import { showModal } from './modal';
+import { showModalLista } from './modal_lista';
+import { openNav } from './sidenav';
+import { closeNav } from './sidenav';
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  openNav();
+  closeNav();
   initMapbox();
   showModal();
+  showModalLista();
 });

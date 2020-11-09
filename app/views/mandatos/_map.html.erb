@@ -1,12 +1,30 @@
-<div id="map"
-  style="width: 100%; height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
+<div class="map-el">
+  <div class='sidebar ml-1'>
+    <div class='heading'>
+      <h1>Progressistas no Ceará</h1>
+      <p>Selecione no mapa para conhecer os progressistas em cada município</p>
+    </div>
 
-<div class='sidebar'>
-  <div class='heading'>
-    <h1>Our locations</h1>
+    <div id='listings' class='listings mb-4'>
+      <div id="sidebar-background">
+        <div id="cidade"></div> 
+        <div class="item"><a class="title">CEARÁ</a></div>
+        <% @mandatos.where(cidade: nil).each do |mandato|%>
+          <div><%= mandato.cargo %> <%= mandato.nome.upcase %></div>
+        <% end %>
+      </div>
+    </div>
+    <div>
+      <button id="lista-completa" class="button button-lista">Veja a lista completa</button>
+      <%= render 'modal_lista'%>
+    </div>
   </div>
-  <div id='listings' class='listings'></div>
+  <div
+    id="map"
+    style="height: 450px;"
+    class='map pad2 mr-1'
+    data-markers="<%= @markers.to_json %>"
+    data-clusters="<%= @geojson.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>

@@ -4,15 +4,37 @@ class MandatosController < ApplicationController
   
   def index
     @membro = Membro.new
+    @mandatos = Mandato.all
     @cidades = Mandato.where.not(cidade: nil).distinct
-    # the `geocoded` scope filters only mandatos with coordinates (latitude & longitude)
     @markers = @cidades.geocoded.map do |cidade|
       {
         lat: cidade.latitude,
         lng: cidade.longitude,
-        cidade: cidade.cidade
+        cidade: @cidade = cidade.cidade.upcase,
+        # image: helpers.asset_url('blue-marker.png'),
+        dados: @mandatos.geocoded.map do |mandato|
+            { nome: mandato.nome.upcase,
+              cidade: mandato.cidade.upcase,
+              cargo: mandato.cargo.capitalize
+            }
+        end
       }
     end
+    @clusters = @mandatos.geocoded.map do |mandato|
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [mandato.longitude, mandato.latitude]
+        },
+        "properties": {
+          "mandato_id": mandato.id,
+          "nome": mandato.nome,
+          "cidade": mandato.cidade
+        }
+      }
+    end
+    @geojson = build_geojson
   end
 
   def show
@@ -59,6 +81,13 @@ class MandatosController < ApplicationController
   end
 
   def mandato_params
-    params.require(:mandato).permit(:nome, :cidade, :email, :whatsapp, :cargo, :cargoadm)
+    params.require(:mandato).permit(:nome, :cidade, :email, :whatsapp, :cargo, :cargoadm, :latitude, :longitude)
+  end
+
+  def build_geojson
+    {
+      type: "FeatureCollection",
+      features: @clusters
+    }
   end
 end
