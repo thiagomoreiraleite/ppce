@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-gap: 0px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
 }
 
 // Smallest device
@@ -14,7 +15,7 @@
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
   .map-el {
-    grid-template-columns: 2fr 3fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -47,11 +48,23 @@
   display: inline;
   border-radius: 5px;
   position: relative;
+  @media (max-width: 500px) {
+    border-radius: 0;
+    }
 }
 
 .map {
   border-radius: 5px;
+  @media (max-width: 500px) {
+  border-radius: 0;
+  }
 }
+
+// #cidade {
+//   // width: 350px;
+//   // height: 100%;
+ 
+// }
 
 // .sidebar {
 //   // display: flexbox;
@@ -80,11 +93,13 @@
 
 .heading {
   background: #53C0EB;
+  // background: rgba(19,61,109,1);
   border-bottom: 1px solid #eee;
-  height: 80px;
+  // height: 80px;
   // line-height: 60px;
   padding: 2px;
   // text-align: center;
+  color: rgba(19,61,109,1);
   h1 {
     font-size: 25px;
     font-family: $body-font;
@@ -99,11 +114,29 @@
   height: 100%;
   overflow: auto;
   padding-bottom: 60px;
+  background-color: white;
+  
+  // @media (max-width: 576px) {
+    
+  //   // width: 100%;
+  // }
+}
+
+#sidebar-background {
+  background-image: asset-url('sidebar3.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  min-height: 250px;
+  // background-attachment: fixed;
+  // opacity: 1;
+  // box-shadow: 0 10px 30px rgba(0,0,0,.1);
 }
 
 .listings .item {
   display: block;
-  border-bottom: 1px solid #eee;
+  // border-bottom: 1px solid #eee;
   padding: 10px;
   text-decoration: none;
 }

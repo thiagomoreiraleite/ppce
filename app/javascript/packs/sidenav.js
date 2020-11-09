@@ -12,15 +12,16 @@ const openNav = () => {
     document.getElementById("numeros").style.display = "none";
     document.getElementById("page").style.marginLeft = "100px";
     document.body.style.backgroundColor = "rgba(0,0,0,0.7)";
+
+    const delayInMilliseconds = 16000; //16 seconds
+    setTimeout(function() {
+      document.getElementById("mySidenav").style.width = "0";
+      document.getElementById("page").style.marginLeft = "0";
+      document.body.style.backgroundColor = "white";
+      document.getElementById("numeros").style.display = "block";
+    }, delayInMilliseconds);
   }
 
-  // const delayInMilliseconds = 1000; //1 second
-  // setTimeout(function() {
-  //   document.getElementById("mySidenav").style.width = "0";
-  //   document.getElementById("page").style.marginLeft = "0";
-  //   document.body.style.backgroundColor = "$light-gray";
-  //   document.getElementById("numeros").style.display = "block";
-  // }, delayInMilliseconds);
 }
 
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
@@ -29,7 +30,7 @@ const closeNav = () => {
   close.onclick = function() {
     document.getElementById("mySidenav").style.width = "0";
     document.getElementById("page").style.marginLeft = "0";
-    document.body.style.backgroundColor = "$light-gray";
+    document.body.style.backgroundColor = "white";
     document.getElementById("numeros").style.display = "block";
   }
 }

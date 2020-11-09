@@ -6,7 +6,13 @@
     </div>
 
     <div id='listings' class='listings mb-4'>
-      <div id="cidade"></div> 
+      <div id="sidebar-background">
+        <div id="cidade"></div> 
+        <div class="item"><a class="title">CEARÁ</a></div>
+        <% @mandatos.where(cidade: nil).each do |mandato|%>
+          <div><%= mandato.cargo %> <%= mandato.nome.upcase %></div>
+        <% end %>
+      </div>
     </div>
     <div>
       <button id="lista-completa" class="button button-lista">Veja a lista completa</button>

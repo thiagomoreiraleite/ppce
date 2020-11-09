@@ -156,7 +156,10 @@ mandato126 = Mandato.new(nome: 'IRMÃO TOIM BRAGA', cidade: 'UMIRIM , Ceará', c
 mandato127 = Mandato.new(nome: 'MARCELLE DO ZE AFRANIO', cidade: 'UMIRIM , Ceará', cargo: "Vereador(a)")
 mandato128 = Mandato.new(nome: 'JEAN SERPA', cidade: 'URUBURETAMA , Ceará', cargo: "Vereador(a)")
 mandato129 = Mandato.new(nome: 'LUCINETE', cidade: 'VIÇOSA DO CEARÁ , Ceará', cargo: "Vereador(a)")
-
+mandato130 = Mandato.new(nome: 'A.J. Albuquerque', cargo: "Deputado(a) Federal")
+mandato131 = Mandato.new(nome: 'Ap. Luiz Henrique', cargo: "Deputado(a) Estadual")
+mandato132 = Mandato.new(nome: 'Bruno Pedrosa', cargo: "Deputado(a) Estadual")
+mandato133 = Mandato.new(nome: 'Fernando Hugo', cargo: "Deputado(a) Estadual")
 
 
 mandato1.save!
@@ -288,6 +291,10 @@ mandato126.save!
 mandato127.save!
 mandato128.save!
 mandato129.save!
+mandato130.save!
+mandato131.save!
+mandato132.save!
+mandato133.save!
 
 puts 'All Membros created!!'
 

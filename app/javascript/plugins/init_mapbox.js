@@ -33,11 +33,11 @@ const addMarkersToMap = (map, markers) => {
   });
 };
 
-// const fitMapToMarkers = (map, markers) => {
-//   const bounds = new mapboxgl.LngLatBounds();
-//   markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-//   map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
-// };
+const fitMapToMarkers = (map, markers) => {
+  const bounds = new mapboxgl.LngLatBounds();
+  markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
+  map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
+};
 
 const initMapbox = () => {
   if (mapElement) {
@@ -52,13 +52,13 @@ const initMapbox = () => {
         clusterRadius: 50
       });
 
-      const delayInMilliseconds = 1000; //1 second
-      setTimeout(function() {
-        map.easeTo({
-          center: [-39.300540, -5.192078],
-          zoom: 6,
-          });
-      }, delayInMilliseconds);
+      // const delayInMilliseconds = 2000; //1 second
+      // setTimeout(function() {
+      //   map.easeTo({
+      //     center: [-39.300540, -5.192078],
+      //     zoom: 6,
+      //     });
+      // }, delayInMilliseconds);
 
       map.addLayer({
         id: 'clusters',
@@ -69,10 +69,10 @@ const initMapbox = () => {
           'circle-color':[
             'step',
             ['get', 'point_count'],
-            'rgba(45,75,114,0.75)',
+            'rgba(45,75,114,0.72)',
             10,
             'rgba(45,75,114,0.88)',
-            20,
+            30,
             'rgba(45,75,114,1)'
             ],
           'circle-radius': [
@@ -127,7 +127,7 @@ const initMapbox = () => {
     });
     const markers = JSON.parse(mapElement.dataset.markers);
     addMarkersToMap(map, markers);
-    // fitMapToMarkers(map, markers);
+    fitMapToMarkers(map, markers);
     map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl }));
   }
