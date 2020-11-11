@@ -34,6 +34,7 @@ import { showModal } from './modal';
 import { showModalLista } from './modal_lista';
 import { openNav } from './sidenav';
 import { closeNav } from './sidenav';
+import { navbar } from './navbar';
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
@@ -44,4 +45,5 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   showModal();
   showModalLista();
+  navbar();
 });

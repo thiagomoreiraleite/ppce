@@ -6,7 +6,7 @@ const showModalLista = () =>{
     const btnLista = document.getElementById("lista-completa");
   
     // Get the <span> element that closes the modal
-    const span = document.getElementsByClassName("close")[0];
+    const spanLista = document.getElementsByClassName("close-lista")[0];
   
     // When the user clicks on the button, open the modal
     btnLista.onclick = function() {
@@ -14,7 +14,7 @@ const showModalLista = () =>{
     }
   
     // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
+    spanLista.onclick = function() {
       modalLista.style.display = "none";
     }
   
