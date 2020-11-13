@@ -6,7 +6,7 @@
     document.getElementById("mySidenav").style.width = "0";
     document.getElementById("page").style.marginLeft = "0";
     // document.body.style.backgroundColor = "white";
-    document.getElementById("numeros").style.display = "block";
+    // document.getElementById("numeros").style.display = "block";
     document.getElementsByClassName("overlay-sidebar")[0].style.display = "none";
     }, delayInMilliseconds);
   }
@@ -18,8 +18,8 @@ const openNav = () => {
 
 
   open.onclick = function() {
-    document.getElementById("mySidenav").style.width = "120px";
-    document.getElementById("page").style.marginLeft = "120px";
+    document.getElementById("mySidenav").style.width = "170px";
+    document.getElementById("page").style.marginLeft = "170px";
     // document.body.style.backgroundColor = "rgba(0,0,0,0.7)";
     document.getElementsByClassName("overlay-sidebar")[0].style.display = "block";
     document.getElementById("mySidenav").style.zIndex = "100";
@@ -27,7 +27,7 @@ const openNav = () => {
   const openResp = document.getElementById("open-nav-resp")
   openResp.onclick = function() {
     document.getElementById("mySidenav").style.width = "100px";
-    document.getElementById("numeros").style.display = "none";
+    // document.getElementById("numeros").style.display = "none";
     // document.getElementById("page").style.marginLeft = "100px";
     // document.body.style.backgroundColor = "rgba(0,0,0,0.7)";
     document.getElementsByClassName("overlay-sidebar")[0].style.display = "block";
@@ -46,7 +46,7 @@ const closeNav = () => {
     document.getElementById("mySidenav").style.width = "0";
     document.getElementById("page").style.marginLeft = "0";
     // document.body.style.backgroundColor = "white";
-    document.getElementById("numeros").style.display = "block";
+    // document.getElementById("numeros").style.display = "block";
     clearTimeout(delay);
     
   }

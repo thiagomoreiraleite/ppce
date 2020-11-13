@@ -24,7 +24,7 @@ const showModal = () =>{
     document.getElementById("mySidenav").style.width = "0";
     document.getElementById("page").style.marginLeft = "0";
     document.getElementsByClassName("overlay-sidebar")[0].style.display = "none";
-    document.getElementById("numeros").style.display = "block";
+    // document.getElementById("numeros").style.display = "block";
     const delayInMilliseconds = 1500; //16 seconds
     setTimeout(function() {
       document.getElementById("myModal").style.display = "block";
