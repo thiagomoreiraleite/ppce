@@ -5,31 +5,39 @@
     delay = setTimeout(function() {
     document.getElementById("mySidenav").style.width = "0";
     document.getElementById("page").style.marginLeft = "0";
-    // document.body.style.backgroundColor = "white";
-    // document.getElementById("numeros").style.display = "block";
     document.getElementsByClassName("overlay-sidebar")[0].style.display = "none";
     }, delayInMilliseconds);
   }
 
 const openNav = () => {
-  const open = document.getElementById("open-nav")
+  const openOne = document.getElementsByClassName("open-nav")[0];
+  const openTwo = document.getElementsByClassName("open-nav")[1];
  
-  
-
-
-  open.onclick = function() {
+  openOne.onclick = function() {
     document.getElementById("mySidenav").style.width = "170px";
     document.getElementById("page").style.marginLeft = "170px";
-    // document.body.style.backgroundColor = "rgba(0,0,0,0.7)";
     document.getElementsByClassName("overlay-sidebar")[0].style.display = "block";
     document.getElementById("mySidenav").style.zIndex = "100";
   }
-  const openResp = document.getElementById("open-nav-resp")
-  openResp.onclick = function() {
+  
+  openTwo.onclick = function() {
+    document.getElementById("mySidenav").style.width = "170px";
+    document.getElementById("page").style.marginLeft = "170px";
+    document.getElementsByClassName("overlay-sidebar")[0].style.display = "block";
+    document.getElementById("mySidenav").style.zIndex = "100";
+  }
+  const openRespOne = document.getElementsByClassName("open-nav-resp")[0];
+  const openRespTwo = document.getElementsByClassName("open-nav-resp")[1];
+
+  openRespOne.onclick = function() {
     document.getElementById("mySidenav").style.width = "100px";
-    // document.getElementById("numeros").style.display = "none";
-    // document.getElementById("page").style.marginLeft = "100px";
-    // document.body.style.backgroundColor = "rgba(0,0,0,0.7)";
+    document.getElementsByClassName("overlay-sidebar")[0].style.display = "block";
+    document.getElementById("mySidenav").style.zIndex = "100";
+    timeOut();
+  }
+
+  openRespTwo.onclick = function() {
+    document.getElementById("mySidenav").style.width = "100px";
     document.getElementsByClassName("overlay-sidebar")[0].style.display = "block";
     document.getElementById("mySidenav").style.zIndex = "100";
     timeOut();
@@ -45,8 +53,6 @@ const closeNav = () => {
     document.getElementsByClassName("overlay-sidebar")[0].style.display = "none";
     document.getElementById("mySidenav").style.width = "0";
     document.getElementById("page").style.marginLeft = "0";
-    // document.body.style.backgroundColor = "white";
-    // document.getElementById("numeros").style.display = "block";
     clearTimeout(delay);
     
   }
