@@ -213,8 +213,8 @@
   animation-name: mymove;
   animation-duration: 10s;
   animation-timing-function: ease-in;
-  animation-delay: 0s;
-  animation-iteration-count: 6;
+  animation-delay: -2s;
+  animation-iteration-count: infinte;
   animation-direction: normal;
   @media (min-width: 800px) {
     font-size: 25px;
