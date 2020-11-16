@@ -1,6 +1,6 @@
 class MandatosController < ApplicationController
   before_action :set_mandato, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  skip_before_action :authenticate_user!
   
   def index
     @membro = Membro.new
