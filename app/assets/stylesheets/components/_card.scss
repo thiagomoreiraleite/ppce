@@ -113,25 +113,43 @@
 }
 
 .card-mensagem {
-  overflow: auto;
-  height: 180px;
+  overflow: hidden;
+  // height: 180px;
   background: white;
   box-shadow: 0 10px 30px rgba(0,0,0,.1);
   display: flex;
   align-items: flex-start;
-  opacity: 0.85;
+  // opacity: 0.85;
   margin: 0 auto;
   position: relative;
-  border-radius: 4px;
-  padding-left: 30px;
-  padding-right: 30px;
-  width:60%
+  // border-radius: 4px;
+  // padding-left: 30px;
+  // padding-right: 30px;
+  width:100%;
+
+  .link {
+    border: 1px solid #53C0EB;
+    padding: 4px 4px;
+    // margin-left: 8px;
+    border-radius: 4px;
+    background-color: transparent;
+    // font-weight: bolder;
+    transition: all .15s ease-in-out;
+    color:#53C0EB;
+    font-size: inherit;
+  }
+  .link:hover {
+    border: 1px solid transparent;
+    color: white;
+    background-color: #53C0EB;
+    font-size: inherit;
+  }
 }
 
-.card-mensagem:hover {
-  box-shadow: 0 0 17px rgba(0,0,0,0.3);;
-  opacity: 0.8;
-}
+// .card-mensagem:hover {
+//   box-shadow: 0 0 17px rgba(0,0,0,0.3);;
+//   opacity: 0.8;
+// }
 
 .card-mensagem .img {
   margin: 7px 0px 12px 7px;
@@ -142,34 +160,50 @@
 }
 
 .card-mensagem h2 {
-  font-size: 17px;
+  text-align: center;
+  font-size: 30px;
   font-weight: bold;
   margin: 0;
+  margin-bottom: 8px;
   color: rgba(23,46,105,1);
 }
 
 .card-mensagem h3 {
-  font-size: 14px;
+  font-size: 22px;
   margin-bottom: 0;
   margin-top: 4px;
+  line-height: 30px;
 }
 
 .card-mensagem p {
-  font-size: 12px;
+  font-size: 24px;
+  font-family: $headers-font;
   line-height: 1.4;
-  opacity: .7;
+  opacity: 1;
   margin-bottom: 0;
   margin-top: 15px;
-  strong {
-    text-decoration: underline;
-    cursor: pointer;
-    color: $blue;
-  }
+  line-height: 40px;
+  // font-weight: bolder;
+}
+
+@media (max-width: 800px) {
+  .card-mensagem h2 {font-size: 25px;}
+  .card-mensagem h3 {font-size: 18px; line-height: 35px;}
+  .card-mensagem p {font-size: 20px; line-height: 35px;}
+}
+
+@media (max-width: 500px) {
+  .card-mensagem h2 {font-size: 23px;}
+  .card-mensagem h3 {font-size: 15px; line-height:30px;}
+  .card-mensagem p {font-size: 17px; line-height:38px;}
 }
 
 .card-mensagem .card-mensagem-infos {
-  padding: 16px 16px 1px 5px;
-  margin-left: 10px;
+  padding: 30px 50px 30px 50px;
+  // margin-left: 10px;
+  @media (max-width: 370px) {
+    padding: 20px 30px 20px 30px;
+  }
 }
 
 // .clearfix::after {

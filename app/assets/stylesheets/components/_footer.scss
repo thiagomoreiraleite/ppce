@@ -1,0 +1,24 @@
+footer {
+  // font-size: ;
+  text-align: center;
+  background-color: #33475b;
+  color: white;
+  a {
+    color:  #53C0EB;
+  }
+  h3 {
+    font-size: 25px;
+    color:  #53C0EB;
+  }
+  p {
+    font-size: 22px;
+  }
+  @media (max-width: 800px) {
+    h3 {font-size: 23px; line-height: 35px;}
+    p {font-size: 20px; line-height: 35px;}
+  }
+  @media (max-width: 500px) {
+    h3 {font-size: 20px; line-height: 35px;}
+    p {font-size: 18px; line-height: 35px;}
+  }
+}
