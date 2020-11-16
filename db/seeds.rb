@@ -27,6 +27,10 @@ u1 = User.new(email: 'zegalinha@ppce.com', password: '123123')
 
 u1.save
 
+u2 = User.new(email: 'leo@ppce.com', password: '123123')
+
+u2.save
+
 mandato1 = Mandato.new(nome: 'OSMARZINHO', cidade: 'BELA CRUZ , Ceará', cargo: "Vice-Prefeito(a)")
 mandato2 = Mandato.new(nome: 'BOSCO SAMPAIO', cidade: 'BREJO SANTO , Ceará', cargo: "Vice-Prefeito(a)")
 mandato3 = Mandato.new(nome: 'CHIQUINHO DO PEIXE', cidade: 'CAMOCIM , Ceará', cargo: "Vice-Prefeito(a)")
