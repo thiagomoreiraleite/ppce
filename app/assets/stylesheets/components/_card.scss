@@ -1,6 +1,7 @@
 .cards {
   display: grid;
-  grid-template-columns: 6fr 5fr 5fr;
+  // grid-template-columns: 6fr 5fr 5fr;
+  grid-template-columns: 6fr 10fr;
   grid-gap: 4px;
   box-shadow: 0 10px 30px rgba(0,0,0,.1);
 }
@@ -9,6 +10,12 @@
   background-image: linear-gradient(rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 90%), asset-url('mulheres.jpg');
   opacity: 1;
   transition: transform .2s;
+  animation-name: mulheres;
+  animation-duration: 4s;
+  animation-timing-function: ease-out;
+  animation-delay: -1s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
 }
 
 #card-juventude {
@@ -16,6 +23,22 @@
   color: white;
   opacity: 1;
   transition: transform .2s;
+  animation-name: juventude;
+  animation-duration: 4s;
+  animation-timing-function: ease-out;
+  animation-delay: -1s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+}
+
+@keyframes mulheres {
+  from {left: 100%;}
+  to {left: 0%;}
+}
+
+@keyframes juventude {
+  from {right: 100%;}
+  to {right: 0%;}
 }
 
 #card-filie-se3 {
@@ -33,35 +56,35 @@
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
-    grid-template-columns: 4fr 3fr;
+    grid-template-columns: 4fr;
   }
 }
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
   .cards {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   .cards {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   .cards {
-    grid-template-columns: 6fr 5fr 5fr;
+    grid-template-columns: 6fr 10fr;
   }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .cards {
-    grid-template-columns: 6fr 5fr 5fr;
+    grid-template-columns: 6fr 10fr;
   }
 }
 
@@ -132,16 +155,23 @@
     padding: 4px 4px;
     // margin-left: 8px;
     border-radius: 4px;
-    background-color: transparent;
-    // font-weight: bolder;
+    // background-color: transparent;
+    background-color: #53C0EB;
+
+    font-weight: bolder;
     transition: all .15s ease-in-out;
-    color:#53C0EB;
+    // color:#53C0EB;
+    color:white;
+
     font-size: inherit;
   }
   .link:hover {
-    border: 1px solid transparent;
-    color: white;
-    background-color: #53C0EB;
+    // border: 1px solid transparent;
+    border: 1px solid #53C0EB;
+
+    // color: white;
+    color: #53C0EB;
+    background-color: transparent;
     font-size: inherit;
   }
 }
@@ -173,6 +203,10 @@
   margin-bottom: 0;
   margin-top: 4px;
   line-height: 30px;
+  font-weight: bold;
+  strong {
+    color: rgba(23,46,105,1);
+  }
 }
 
 .card-mensagem p {
