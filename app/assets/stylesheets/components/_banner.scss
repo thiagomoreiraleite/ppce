@@ -1,5 +1,5 @@
 .banner {
-  background-image: linear-gradient(rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 50%), asset-url('estrada.jpg');
+  background-image: linear-gradient(rgba(253, 141, 141, 0.1) 0%,rgba(0,0,0,0.1) 50%), asset-url('estrada.jpg');
   background-size: cover;
   background-position: center;
   position: relative;
@@ -49,7 +49,7 @@
   }
   @media (max-width: 800px) {
     font-size: 20px;
-    width: 34%;
+    width: 37%;
     top: 500px;
     padding: 0;
   }
@@ -59,12 +59,13 @@
     left: 50%;
   }
   @media (max-width: 569px) {
-    font-size: 20px;
+    font-size: 17px;
     // left: 55%;
   }
   @media (max-width: 500px) {
-    font-size: 16px;
+    font-size: 17px;
     height: 48px;
+    top: 470px;
     // margin: 24px auto;
     // left: 55%;
   }
@@ -119,7 +120,7 @@
   }
   @media (max-width: 800px) {
     font-size: 20px;
-    width: 34%;
+    width: 37%;
     padding: 0;
   }
   @media (max-width: 581px) {
@@ -128,11 +129,11 @@
     left: 50%;
   }
   @media (max-width: 569px) {
-    font-size: 20px;
+    font-size: 17px;
     // left: 55%;
   }
   @media (max-width: 500px) {
-    font-size: 16px;
+    font-size: 17px;
     height: 48px;
     margin: 24px auto;
     // left: 55%;
@@ -214,6 +215,9 @@
     @media (min-width: 1200px) {
       font-size: 30px;
     }
+  }
+  @media (max-width: 465px) {
+    height: 120px;
   }
 }
 
