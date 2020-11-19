@@ -1,7 +1,7 @@
 .button {
   border: none;
   color: white;
-  padding: 16px 28px;
+  padding: 8px 13px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -15,8 +15,9 @@
   color: black; 
   border: 2px solid rgba(19,61,109,1);
   position: absolute;
-  bottom: 0;
-  font-size: 17px;
+  bottom: 2px;
+  left: 2px;
+  font-size: 13px;
   font-weight: bold;
   border-radius: 5px;
 }

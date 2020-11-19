@@ -1,27 +1,27 @@
 <div class="map-el">
   <div class='sidebar ml-2 mb-2 pr-1'>
     <div class='heading'>
-      <h1>Progressistas no Ceará</h1>
-      <p>Selecione no mapa para conhecer os progressistas em cada município</p>
+      <div>
+        <h1>Progressistas no Ceará</h1>
+        <p>Selecione no mapa para conhecer os progressistas em cada município ou veja a lista completa</p>
+      </div>
+      <div style="height: 40px;">
+        <button id="lista-completa" class="button button-lista">Lista completa</button>
+      </div>
     </div>
 
     <div id='listings' class='listings mb-4 ml-2'>
-      <div id="sidebar-background">
-        <div id="cidade"></div> 
+      <div id="sidebar-background"> 
         <div class="item"><a class="title">CEARÁ</a></div>
         <% @mandatos.where(cidade: nil).each do |mandato|%>
           <div><%= mandato.cargo %> <%= mandato.nome.upcase %></div>
         <% end %>
+        <div id="cidade"></div>
       </div>
-    </div>
-    <div>
-      <button id="lista-completa" class="button button-lista">Veja a lista completa</button>
-      <%= render 'modal_lista'%>
     </div>
   </div>
   <div
     id="map"
-    style="height: 450px;"
     class='map pad2 mr-1'
     data-markers="<%= @markers.to_json %>"
     data-clusters="<%= @geojson.to_json %>"

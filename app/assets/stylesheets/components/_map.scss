@@ -48,15 +48,17 @@
   display: inline;
   border-radius: 5px;
   position: relative;
-  @media (max-width: 500px) {
+  @media (max-width: 575px) {
     border-radius: 0;
-    }
+  }
 }
 
 .map {
   border-radius: 5px;
-  @media (max-width: 500px) {
+  height: 500px;
+  @media (max-width: 575px) {
   border-radius: 0;
+  height: 350px;
   }
 }
 
@@ -101,6 +103,7 @@
   // text-align: center;
   // color: rgba(19,61,109,1);
   color: #e6e6e6;
+  position: relative;
   h1 {
     font-size: 25px;
     font-family: $body-font;
@@ -108,13 +111,20 @@
   }
   p {
     font-size: 13px;
+    margin-bottom: 0;
   }
+}
+@media (max-width: 575px) {
+  .heading h1 {font-size: 16px;}
+  .heading p {font-size: 12px;}
+  .listings {font-size: 13px;}
+  .listings item {padding: 5px;}
 }
 
 .listings {
   height: 100%;
   overflow: auto;
-  padding-bottom: 60px;
+  padding-bottom: 10px;
   background-color: $light-gray;
   
   // @media (max-width: 576px) {
