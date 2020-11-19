@@ -15,9 +15,9 @@ const buildMap = () => {
 
 const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
-    const el = document.createElement('div');
-    el.className = 'marker';
-    const newMarker = new mapboxgl.Marker(el)
+    // const el = document.createElement('div');
+    // el.className = 'marker';
+    const newMarker = new mapboxgl.Marker()
       .setLngLat([ marker.lng, marker.lat ])
       .addTo(map);
     newMarker.getElement().dataset.markerCidade = marker.cidade;
@@ -42,15 +42,15 @@ const addMarkersToMap = (map, markers) => {
 const initMapbox = () => {
   if (mapElement) {
     const map = buildMap();
-    // map.on('load', function() {
-    //   const clusters = JSON.parse(mapElement.dataset.clusters);
-    //   map.addSource('clusters', {
-    //     type: 'geojson',
-    //     data: clusters,
-    //     cluster: true,
-    //     clusterMaxZoom: 14,
-    //     clusterRadius: 50
-    //   });
+    map.on('load', function() {
+      const clusters = JSON.parse(mapElement.dataset.clusters);
+      map.addSource('clusters', {
+        type: 'geojson',
+        data: clusters,
+        cluster: true,
+        clusterMaxZoom: 14,
+        clusterRadius: 50
+      });
 
     //   // const delayInMilliseconds = 2000; //1 second
     //   // setTimeout(function() {
@@ -60,71 +60,71 @@ const initMapbox = () => {
     //   //     });
     //   // }, delayInMilliseconds);
 
-    //   map.addLayer({
-    //     id: 'clusters',
-    //     type: 'circle',
-    //     source: 'clusters',
-    //     filter: ['has', 'point_count'],
-    //     paint: {
-    //       'circle-color':[
-    //         'step',
-    //         ['get', 'point_count'],
-    //         'rgba(45,75,114,0.72)',
-    //         10,
-    //         'rgba(45,75,114,0.88)',
-    //         30,
-    //         'rgba(45,75,114,1)'
-    //         ],
-    //       'circle-radius': [
-    //         'step',
-    //         ['get', 'point_count'],
-    //         28,
-    //         10,
-    //         33,
-    //         20,
-    //         37
-    //       ]
-    //     }
-    //   });
+      map.addLayer({
+        id: 'clusters',
+        type: 'circle',
+        source: 'clusters',
+        filter: ['has', 'point_count'],
+        paint: {
+          'circle-color':[
+            'step',
+            ['get', 'point_count'],
+            'rgba(45,75,114,0.72)',
+            10,
+            'rgba(45,75,114,0.88)',
+            30,
+            'rgba(45,75,114,1)'
+            ],
+          'circle-radius': [
+            'step',
+            ['get', 'point_count'],
+            28,
+            10,
+            33,
+            20,
+            37
+          ]
+        }
+      });
 
-    //   map.addLayer({
-    //     id: 'cluster-count',
-    //     type: 'symbol',
-    //     source: 'clusters',
-    //     filter: ['has', 'point_count'],
-    //     layout: {
-    //       'text-field': '{point_count_abbreviated}',
-    //       'text-offset': [0.6, 0.6],
-    //       'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
-    //       'text-size': 18
-    //     },
-    //     paint: {
-    //       'text-color': 'white'
-    //     }
-    //   });
+      map.addLayer({
+        id: 'cluster-count',
+        type: 'symbol',
+        source: 'clusters',
+        filter: ['has', 'point_count'],
+        layout: {
+          'text-field': '{point_count_abbreviated}',
+          'text-offset': [0.6, 0.6],
+          'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
+          'text-size': 18
+        },
+        paint: {
+          'text-color': 'white'
+        }
+      });
 
-    //   map.on('click', 'clusters', function (e) {
-    //     const features = map.queryRenderedFeatures(e.point, { layers: ['clusters'] });
-    //     const clusterId = features[0].properties.cluster_id;
+      map.on('click', 'clusters', function (e) {
+        const features = map.queryRenderedFeatures(e.point, { layers: ['clusters'] });
+        const clusterId = features[0].properties.cluster_id;
  
-    //     map.getSource('clusters').getClusterExpansionZoom(clusterId, function (err, zoom) {
-    //       if (err) return;
+        map.getSource('clusters').getClusterExpansionZoom(clusterId, function (err, zoom) {
+          if (err) return;
 
-    //       map.easeTo({
-    //         center: features[0].geometry.coordinates,
-    //         zoom: 8.5,
-    //       });
-    //     });
-    //   });
+          map.easeTo({
+            center: features[0].geometry.coordinates,
+            zoom: 8.5,
+          });
+        });
+      });
 
-    //   map.on('mouseenter', 'clusters', function (e) {
-    //     map.getCanvas().style.cursor = 'pointer';
-    //   });
+      map.on('mouseenter', 'clusters', function (e) {
+        map.getCanvas().style.cursor = 'pointer';
+      });
 
-    //   map.on('mouseleave', 'clusters', function () {
-    //     map.getCanvas().style.cursor = '';
-    //   });    
-    // });
+      map.on('mouseleave', 'clusters', function () {
+        map.getCanvas().style.cursor = '';
+      });    
+    });
     const markers = JSON.parse(mapElement.dataset.markers);
     addMarkersToMap(map, markers);
     // fitMapToMarkers(map, markers);
